@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Ricevuti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        @media (max-width: 600px) {
+            th, td {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Feedback Ricevuti</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Utilità PDF</th>
+                <th>Parte Piaciuta</th>
+                <th>Miglioramenti Suggeriti</th>
+                <th>Errori nel PDF</th>
+                <th>Dettagli Errori</th>
+                <th>Navigazione Web</th>
+                <th>Informazioni Trovate</th>
+                <th>Informazioni Cercate</th>
+                <th>Design Web</th>
+                <th>Suggerimenti Web</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedbacks %}
+            <tr>
+                <td>{{ feedback[0] }}</td>
+                <td>{{ feedback[1] }}</td>
+                <td>{{ feedback[2] }}</td>
+                <td>{{ feedback[3] }}</td>
+                <td>{{ feedback[4] }}</td>
+                <td>{{ feedback[5] }}</td>
+                <td>{{ feedback[6] }}</td>
+                <td>{{ feedback[7] }}</td>
+                <td>{{ feedback[8] }}</td>
+                <td>{{ feedback[9] }}</td>
+                <td>{{ feedback[10] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

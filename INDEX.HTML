@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Stile per la modale */
+        .modal {
+            display: none; /* Nascondi di default */
+            position: fixed; /* Resta fisso */
+            z-index: 1; /* Sopra altri contenuti */
+            left: 0;
+            top: 0;
+            width: 100%; /* Larghezza intera */
+            height: 100%; /* Altezza intera */
+            overflow: auto; /* Abilita lo scorrimento se necessario */
+            background-color: rgb(0,0,0); /* Colore di sfondo */
+            background-color: rgba(0,0,0,0.4); /* Sfondo nero con trasparenza */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* Centrato */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Larghezza della modale */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .download-button {
+            display: flex; /* Usa flexbox per allineare i pulsanti */
+            gap: 10px; /* Spaziatura tra i pulsanti */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="TopNavBar">
+        <div>
+            <img src="top logo-01.png" alt="logo studio di consulenza e prevenzione" class="logo" />
+        </div>
+    </div>
+
+    <div class="ImageTop">  
+        <img src="immagine consulenza.png" alt="Immagine Principale" class="image">
+    </div>
+
+    <div class="content"> 
+        <h1>La Vostra Sicurezza è la Nostra Priorità</h1>
+        <p>     Proponiane soluzioni personalizzate che rispondano alle specifiche esigenze di ogni impresa, garantendo piena 
+		conformità alle normative italiane ed europee. Siamo consapevoli che la sicurezza sul lavoro non è solo un obbligo legale, 
+		ma un elemento fondamentale per la tutela della salute dei dipendenti e per il miglioramento della qualità del lavoro. 
+		Un’errata valutazione dei rischi può infatti comportare gravi conseguenze, da infortuni a malattie professionali.</p>
+        <p>     La nostra consulenza si concentra sulla prevenzione degli infortuni, iniziando con un’accurata analisi dei rischi presenti 
+		nel vostro ambiente lavorativo. Attraverso l’implementazione di misure preventive, come programmi di formazione e procedure 
+		operative sicure, miriamo a ridurre significativamente il rischio di incidenti. In questo processo, lavoriamo a stretto contatto 
+		con voi per promuovere una cultura della sicurezza solida e diffusa, coinvolgendo attivamente tutti i lavoratori nella protezione della loro salute.</p>
+        <p>     In aggiunta, ci occupiamo di tutti gli aspetti necessari per l’implementazione di pratiche di sicurezza efficaci: 
+		dalla valutazione dei rischi alla redazione di documenti obbligatori, come il Documento di Valutazione dei Rischi (DVR), 
+		fino al supporto nella gestione delle emergenze.</p>
+
+        <p>     Siamo il partner ideale per le aziende che desiderano investire nella sicurezza e nel benessere dei propri dipendenti.</p>
+     </div>
+
+   <div class="content"> 
+        <h1></h1>
+            <p>Per fornire una comprensione approfondita della struttura di una valutazione dei rischi conforme alle normative attuali, abbiamo deciso di 
+               condividere un Documento Esplicativo per il Calcolo del Fattore di Rischio. Questo strumento è studiato per illustrare l'importanza della 
+              Sicurezza sul Lavoro.</p>
+          <p> <strong>Puoi scaricare Gratuitamente il PDF</strong>, una guida completa che ti aiuterà a calcolare il fattore di rischio in modo preciso e conforme alle normative vigenti. 
+              Questa risorsa è fondamentale per chiunque desideri approfondire la gestione dei rischi. Il documento è progettato per essere facilmente comprensibile, 
+              anche per chi non ha una formazione specifica in materia. Include spiegazioni chiare, esempi pratici e tabelle che semplificano il processo di calcolo.</p>
+          <p> Ti ringraziamo per il tuo interesse! Speriamo che questo documento ti sia utile e che tu possa riconoscere l'importanza della sicurezza sul lavoro.</p>
+          <p> Non dimenticare di lasciarci il tuo feedback, la tua opinione è importante per noi..</p>
+
+    </div>
+
+    <div class="download-button">
+         <button id="downloadPdfBtn" class="button">DOWNLOAD PDF GRATIS</button>
+         <button id="downloadBtn" class="button">SCRIVI FEEDBACK</button>
+           </div>
+
+    <!-- Modale di Feedback -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+             <p><h2> RISPONDI A QUESTE BREVI DOMANDE.</h2></p>
+          
+	 <form id="feedbackForm" action="/submit_feedback" method="POST">
+    <h2>Sezione 1: Feedback sul PDF</h2>
+    <h3><strong>Hai trovato il PDF utile?</strong></h3>
+    <label><input type="radio" name="pdfUtility" value="Molto utile"> Molto utile</label><br>
+    <label><input type="radio" name="pdfUtility" value="Abbastanza utile"> Abbastanza utile</label><br>
+    <label><input type="radio" name="pdfUtility" value="Per niente utile"> Per niente utile</label><br>
+    <h3><label for="likedPart"><strong>Quale parte del PDF ti è piaciuta di più?</strong></label><br></h3>
+    <textarea id="likedPart" name="likedPart" rows="4" cols="50"></textarea><br>
+
+    <h3><label for="improvement"><strong>Ci sono argomenti o sezioni che vorresti veder approfonditi?</strong></label></h3>
+    <textarea id="improvement" name="improvement" rows="4" cols="50"></textarea><br>
+
+    <h3><strong>Hai riscontrato errori o informazioni mancanti nel PDF?</strong></h3>
+    <label><input type="radio" name="pdfErrors" value="Sì"> Sì</label><br>
+    <label><input type="radio" name="pdfErrors" value="No"> No</label><br>
+
+    <label for="errorDetails"><strong>Se sì, per favore specifica:</strong></label><br>
+    <textarea id="errorDetails" name="errorDetails" rows="4" cols="50"></textarea><br>
+
+    <h2><strong>Sezione 2: Feedback sulla Pagina Web</strong></h2>
+    <h3><strong>Come valuteresti la navigazione della pagina web?</strong></h3>
+    <label><input type="radio" name="webNavigation" value="Eccellente"> Eccellente</label><br>
+    <label><input type="radio" name="webNavigation" value="Adeguata"> Adeguata</label><br>
+    <label><input type="radio" name="webNavigation" value="Molto difficile"> Molto difficile</label><br>
+
+    <h3><strong>Hai trovato facilmente le informazioni che cercavi?</strong></h3>
+    <label><input type="radio" name="infoFound" value="Sì"> Sì</label><br>
+    <label><input type="radio" name="infoFound" value="No"> No</label><br>
+
+    <h3><label for="infoSearched"><strong>Se no, quali informazioni stavi cercando?</strong></label></h3>
+    <textarea id="infoSearched" name="infoSearched" rows="4" cols="50"></textarea><br>
+
+    <h3><strong>Come valuteresti il design e l'aspetto visivo della pagina?</strong></h3>
+    <label><input type="radio" name="webDesign" value="Eccellente"> Eccellente</label><br>
+    <label><input type="radio" name="webDesign" value="Adeguato"> Adeguato</label><br>
+    <label><input type="radio" name="webDesign" value="Molto scarso"> Molto scarso</label><br>
+
+    <h3><label for="webSuggestions"><strong>Hai suggerimenti per migliorare la nostra pagina web?</strong></label></h3>
+    <textarea id="webSuggestions" name="webSuggestions" rows="4" cols="50"></textarea><br>
+
+    <button type="submit"><strong>Invia Feedback - GRAZIE</strong></button>
+</form>
+        </div>
+    </div>
+<footer class="footer">  
+    <div class="footer-container">
+        <div class="footer-row">
+            
+            <div class="Social-icons-container">
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="#chi-siamo">Chi Siamo</a>
+                <a href="#dove-siamo">Dove Siamo</a>
+                <a href="#contatti">Contatti</a>
+            </div>
+<div class="footer-text">
+                <p class="text">&copy; 2025 Tutti i diritti riservati - Antonio Esposito</p>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+
+    <script>
+        // Ottieni la modale
+        var modal = document.getElementById("feedbackModal");
+        var downloadBtn = document.getElementById("downloadBtn");
+        var downloadPdfBtn = document.getElementById("downloadPdfBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        
+
+        // Quando l'utente clicca sul pulsante di scaricamento PDF
+        downloadPdfBtn.onclick = function() {
+            window.location.href = 'Documento Esplicativo per il Fattore di Rischio.pdf'; 
+        }
+
+       // Quando l'utente clicca sul pulsante di Feedback, mostra la modale
+        downloadBtn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Quando l'utente clicca sulla "x", chiudi la modale
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Quando l'utente clicca al di fuori della modale, chiudila
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Invia il modulo di feedback
+        document.getElementById("feedbackForm").onsubmit = function(event) {
+            event.preventDefault(); // Impedisci il ricaricamento della pagina
+            alert("Grazie per il tuo feedback!"); // Messaggio di conferma
+            modal.style.display = "none"; // Chiudi la modale
+        }
+    </script>
+</body>
+</html>
