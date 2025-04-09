@@ -35,6 +35,8 @@ Tecnologie Utilizzate
 - **CSS**: Per lo stile e il layout.
 - **JavaScript**: Per la funzionalità interattiva, inclusa la gestione della modale di feedback.
 - **Font Awesome**: Per le icone dei social media.
+- **python**: Per linguaggio di programmazione.
+- **Flasck**: è un micro framework per Python che ti permette di costruire applicazioni web 
 
 Requisiti
 
