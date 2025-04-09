@@ -1,0 +1,18 @@
+/Progekt Work/
+│
+├── app.py
+├── create_db (da inizializzare per creare il file feedback.db)
+├── feedback.db
+├── templates/
+│   └── index.html 
+│   └── feedbacks.html
+│   └── view_feedback.html
+├── static/
+│   ├── images/
+│   │   └── top logo-01.png
+│   │   └── immagine consulenza.png
+│   ├── Documento Esplicativo per il Fattore di Rischio.pdf
+│   ├── style.css
+│   ├── feedback.css
+│   └── js/
+│       └── feedback.js

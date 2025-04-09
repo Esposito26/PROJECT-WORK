@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Ricevuti</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Stile personalizzato -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .TopNavBar {
+            background-color: #ffffff;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .TopNavBar .logo {
+            max-height: 70px;
+        }
+
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .back-button {
+            margin-bottom: 20px;
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-button:hover {
+            background-color: #34495e;
+        }
+
+        .form-control {
+            max-width: 300px;
+        }
+
+        .export-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+
+        .export-btn:hover {
+            background-color: #1e8449;
+        }
+
+        .table thead {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table tbody tr:hover {
+            background-color: #dfe6e9;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.4rem;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Logo -->
+<div class="TopNavBar">
+    <img src="{{ url_for('static', filename='images/top_logo-01.png') }}" alt="Logo Studio di Consulenza" class="logo">
+</div>
+
+<!-- Contenuto -->
+<div class="container">
+
+    <a href="{{ url_for('home') }}" class="back-button"><i class="fas fa-arrow-left"></i> Torna alla Home</a>
+
+    <h1><i class="fas fa-comments"></i> Feedback Ricevuti</h1>
+
+    <div class="d-flex justify-content-between mb-3 flex-wrap gap-3">
+        <input type="text" id="searchInput" class="form-control" placeholder="Cerca tra i feedback...">
+        <button class="export-btn" onclick="exportTableToCSV('feedback.csv')"><i class="fas fa-file-csv"></i> Esporta CSV</button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle" id="feedbackTable">
+            <thead class="text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>Utilità del PDF</th>
+                    <th>Parte Apprezzata</th>
+                    <th>Miglioramenti</th>
+                    <th>Errore nel PDF</th>
+                    <th>Dettagli Errore</th>
+                    <th>Navigazione Web</th>
+                    <th>Info Trovate</th>
+                    <th>Info Cercate</th>
+                    <th>Design Web</th>
+                    <th>Suggerimenti</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feedback in feedbacks %}
+                <tr>
+                    <td>{{ feedback[0] }}</td>
+                    <td>{{ feedback[1] }}</td>
+                    <td>{{ feedback[2] }}</td>
+                    <td>{{ feedback[3] }}</td>
+                    <td>{{ feedback[4] }}</td>
+                    <td>{{ feedback[5] }}</td>
+                    <td>{{ feedback[6] }}</td>
+                    <td>{{ feedback[7] }}</td>
+                    <td>{{ feedback[8] }}</td>
+                    <td>{{ feedback[9] }}</td>
+                    <td>{{ feedback[10] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="Social-icons-container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <a href="#chi-siamo">Chi Siamo</a>
+            <a href="#dove-siamo">Dove Siamo</a>
+            <a href="#contatti">Contatti</a>
+        </div>
+    </div>
+    <div class="footer-text">
+        <p class="text">&copy; 2025 Tutti i diritti riservati - Antonio Esposito</p>
+    </div>
+</footer>
+
+<!-- Script

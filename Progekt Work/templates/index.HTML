@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Sicurezza sul Lavoro</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='feedback.css') }}">
+    
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Stili inline per la modale -->
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 700px;
+            border-radius: 10px;
+        }
+
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .download-button {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Logo -->
+    <div class="TopNavBar">
+        <img src="{{ url_for('static', filename='images/top logo-01.png') }}" alt="Logo Studio" class="logo">
+    </div>
+
+    <!-- Immagine principale -->
+    <div class="ImageTop">
+        <img src="{{ url_for('static', filename='images/immagine consulenza.png') }}" alt="Immagine Principale" class="image">
+    </div>
+
+    <!-- Contenuto -->
+    <div class="content">
+        <h1>La Vostra Sicurezza è la Nostra Priorità</h1>
+        <p>Proponiamo soluzioni personalizzate per ogni impresa, garantendo piena conformità alle normative italiane ed europee.</p>
+        <p>La nostra consulenza si concentra sulla prevenzione degli infortuni attraverso analisi dei rischi, formazione, e procedure operative sicure.</p>
+        <p>Scarica il nostro <strong>Documento Esplicativo per il Calcolo del Fattore di Rischio</strong> per approfondire la sicurezza sul lavoro.</p>
+        <p>Ti chiediamo anche di lasciarci il tuo feedback: la tua opinione è importante!</p>
+    </div>
+
+    <!-- Pulsanti -->
+    <div class="download-button">
+        <button id="downloadPdfBtn" class="button">📄 Download PDF Gratis</button>
+        <button id="downloadBtn" class="button">✍️ Scrivi Feedback</button>
+    </div>
+
+    <!-- Modale di feedback -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Rispondi a queste brevi domande</h2>
+            <form id="feedbackForm" method="POST" action="/submit_feedback">
+                <h3>Hai trovato il PDF utile?</h3>
+                <label><input type="radio" name="pdfUtility" value="Molto utile"> Molto utile</label><br>
+                <label><input type="radio" name="pdfUtility" value="Abbastanza utile"> Abbastanza utile</label><br>
+                <label><input type="radio" name="pdfUtility" value="Per niente utile"> Per niente utile</label><br>
+
+                <label for="likedPart"><strong>Parte preferita:</strong></label><br>
+                <textarea name="likedPart" id="likedPart" rows="2" cols="50"></textarea><br>
+
+                <label for="improvement"><strong>Argomenti da approfondire:</strong></label><br>
+                <textarea name="improvement" id="improvement" rows="2" cols="50"></textarea><br>
+
+                <p>Hai riscontrato errori nel PDF?</p>
+                <label><input type="radio" name="pdfErrors" value="Sì"> Sì</label><br>
+                <label><input type="radio" name="pdfErrors" value="No"> No</label><br>
+
+                <label for="errorDetails"><strong>Dettagli dell'errore (se presenti):</strong></label><br>
+                <textarea name="errorDetails" id="errorDetails" rows="2" cols="50"></textarea><br>
+
+                <h3>Feedback sul sito web</h3>
+                <p>Valutazione della navigazione:</p>
+                <label><input type="radio" name="webNavigation" value="Eccellente"> Eccellente</label><br>
+                <label><input type="radio" name="webNavigation" value="Adeguata"> Adeguata</label><br>
+                <label><input type="radio" name="webNavigation" value="Molto difficile"> Molto difficile</label><br>
+
+                <p>Hai trovato facilmente le informazioni?</p>
+                <label><input type="radio" name="infoFound" value="Sì"> Sì</label><br>
+                <label><input type="radio" name="infoFound" value="No"> No</label><br>
+
+                <label for="infoSearched">Quali info cercavi (se non trovate):</label><br>
+                <textarea name="infoSearched" id="infoSearched" rows="2" cols="50"></textarea><br>
+
+                <p>Valutazione del design:</p>
+                <label><input type="radio" name="webDesign" value="Eccellente"> Eccellente</label><br>
+                <label><input type="radio" name="webDesign" value="Adeguato"> Adeguato</label><br>
+                <label><input type="radio" name="webDesign" value="Molto scarso"> Molto scarso</label><br>
+
+                <label for="webSuggestions">Suggerimenti per migliorare:</label><br>
+                <textarea name="webSuggestions" id="webSuggestions" rows="2" cols="50"></textarea><br><br>
+
+                <button type="submit" class="button">✅ Invia Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="#chi-siamo">Chi Siamo</a>
+                <a href="#dove-siamo">Dove Siamo</a>
+                <a href="#contatti">Contatti</a>
+            </div>
+        </div>
+        <div class="footer-text text-center">
+            &copy; 2025 Tutti i diritti riservati - Antonio Esposito
+        </div>
+    </footer>
+
+    <!-- JavaScript esterno -->
+    <script src="{{ url_for('static', filename='js/feedback.js') }}"></script>
+</body>
+</html>
