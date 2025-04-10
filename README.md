@@ -41,7 +41,7 @@ Il backend utilizza un database relazionale per conservare le informazioni sui f
 
 Istruzioni per l'Uso
 
-1. **Apri il file HTML**: Apri `index.html` con un browser web per visualizzare la homepage.
+1. **Apri il file HTML**: Apri index.html con un browser web per visualizzare la homepage.
 2. **Scarica il PDF**: Clicca sul pulsante "DOWNLOAD PDF GRATIS" per scaricare il documento.
 3. **Invia Feedback**: Clicca sul pulsante "SCRIVI FEEDBACK" per aprire la modale e inviare il tuo feedback. Compila il modulo e invialo per ricevere un messaggio di conferma.
 
