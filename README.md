@@ -10,11 +10,15 @@ Struttura del Progetto
 
 File Principali
 
-1. **index.html** - Il file HTML principale che definisce la struttura della homepage.
-2. **style.css** - Il file CSS per la personalizzazione dello stile della pagina (non incluso nel codice fornito, ma indicato nel link).
-3. **top logo-01.png** - Logo utilizzato nella parte superiore della pagina.
+1. **index.html**                   # Il file HTML principale che definisce la struttura della homepage.
+2. **style.css**                    # Il file CSS per la personalizzazione dello stile della pagina (non incluso nel codice fornito, ma indicato nel link).
+3. **top logo-01.png**              # Logo utilizzato nella parte superiore della pagina.
 4. **immagine consulenza.png** - Immagine principale utilizzata nella homepage.
 5. **Documento Esplicativo per il Fattore di Rischio.pdf** - Documento scaricabile che illustra come calcolare il fattore di rischio.
+6. **app.py**                       # Script principale per avviare il server Flask
+7. **create_db**                    # Script per inizializzare il database e creare feedback.db
+8. **feedback.db**                  # Database SQLite che memorizza i feedback degli utenti
+9. **feedback.js**                  # Funzionalità JavaScript per la gestione della modale di feedback
 
 Funzionalità
 
