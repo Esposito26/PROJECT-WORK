@@ -18,10 +18,22 @@ File Principali
 
 Funzionalità
 
-- **Sezione di Presentazione**: Una panoramica dei servizi di consulenza offerti, con un focus sulla sicurezza sul lavoro.
-- **Download di PDF**: Pulsante per scaricare un documento utile sulla valutazione dei rischi.
-- **Modulo di Feedback**: Una modale che si apre quando l'utente clicca su "SCRIVI FEEDBACK", permettendo di inviare feedback sulla pagina e sul documento scaricato.
-- **Social Media**: Icone che collegano agli account social dell'azienda.
+1. Download PDF
+Gli utenti possono scaricare gratuitamente un documento PDF informativo sulla sicurezza sul lavoro.
+
+Il pulsante "📄 Download PDF Gratis" avvia il download del PDF.
+
+2. Modulo di Feedback
+Gli utenti possono inviare un feedback riguardo al PDF scaricato e alla navigazione del sito.
+
+Il modulo include domande sulla utilità del PDF, eventuali errori nel documento, valutazioni sul design del sito e suggerimenti per miglioramenti.
+
+Le risposte vengono inviate al backend tramite una richiesta POST.
+
+3. Gestione dei Feedback
+I dati inviati attraverso il modulo di feedback vengono salvati nel database per una gestione successiva.
+
+Il backend utilizza un database relazionale per conservare le informazioni sui feedback ricevuti, che possono essere utilizzati per migliorare i contenuti e la navigazione del sito.
 
 Istruzioni per l'Uso
 
@@ -31,14 +43,46 @@ Istruzioni per l'Uso
 
 Tecnologie Utilizzate
 
+1. Frontend (Client-Side)
 - **HTML5**: Per la struttura della pagina.
-- **CSS**: Per lo stile e il layout.
+- **CSS**: Per lo stile e il layout, inclusa la gestione di layout responsive e delle animazioni.
 - **JavaScript**: Per la funzionalità interattiva, inclusa la gestione della modale di feedback.
 - **Font Awesome**: Per le icone dei social media.
-- **python**: Per linguaggio di programmazione.
-- **Flasck**: è un micro framework per Python che ti permette di costruire applicazioni web 
+
+2. Backend (Server-Side)
+- **python**: Per linguaggio di programmazione principale utilizzato per lo sviluppo del backend.
+- **Flasck**: è un Micro-framework Python per la creazione e gestione delle rotte, la gestione dei file statici e la gestione delle richieste HTTP.
+
+- **Database**: Utilizzo di un database relazionale (come SQLite, PostgreSQL, ecc.) per memorizzare i dati inviati dagli utenti tramite il modulo di feedback.
+
+- **Jinja2**: Motore di template di Flask utilizzato per il rendering dinamico delle pagine HTML e l'inclusione dei file statici (CSS, immagini, JavaScript).
+
+
+/Project Work
+│
+├── app.py                       # Script principale per avviare il server Flask
+├── create_db                    # Script per inizializzare il database e creare feedback.db
+├── feedback.db                  # Database SQLite che memorizza i feedback degli utenti
+├── templates/
+│   ├── index.html               # Pagina principale con il modulo di feedback e il download del PDF
+│   ├── feedbacks.html           # Pagina per visualizzare tutti i feedback inviati
+│   └── view_feedback.html       # Pagina per visualizzare un feedback specifico
+│
+├── static/
+    ├── images/
+    │   ├── top logo-01.png            # Logo della pagina
+    │   └── immagine consulenza.png    # Immagine principale della homepage
+    ├── Documento Esplicativo per il Fattore di Rischio.pdf      # PDF scaricabile
+    ├── style.css                      # Stili generali per la pagina
+    ├── feedback.css                   # Stili per il modulo di feedback
+    └── js/
+        └── feedback.js                # Funzionalità JavaScript per la gestione della modale di feedback
+
 
 Requisiti
 
 - Un browser web moderno per visualizzare correttamente la pagina.
 - Connessione a Internet per caricare le librerie esterne (ad esempio, Font Awesome).
+
+
+
