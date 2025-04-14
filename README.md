@@ -86,5 +86,6 @@ Il backend utilizza un database relazionale per conservare le informazioni sui f
 
 - Un browser web moderno per visualizzare correttamente la pagina.
 - Connessione a Internet per caricare le librerie esterne (ad esempio, Font Awesome).
+- TECNOLOGIE UTILIZZATE.
 
 
