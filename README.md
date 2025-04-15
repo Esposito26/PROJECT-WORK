@@ -82,10 +82,47 @@ Il backend utilizza un database relazionale per conservare le informazioni sui f
         └── feedback.js                # Funzionalità JavaScript per la gestione della modale di feedback
 
 
-**Requisiti**
 
-- Un browser web moderno per visualizzare correttamente la pagina.
-- Connessione a Internet per caricare le librerie esterne (ad esempio, Font Awesome).
-- TECNOLOGIE UTILIZZATE.
+**Guida per lanciare il progetto localmente dal prompt dei comandi
+Partiamo dal presupposto che tu abbia già Python e Flask installati.**
+________________________________________
+**1. Installa Python e Flask (se non già installati)**
+Se non li hai già installati, apri il prompt dei comandi e digita:
+	pip install python   
 
+Attenzione: questo se il comando è errato, istalla Python da python.org
+Poi installa Flask con:
+	pip install flask
+________________________________________
+**2. Spostati nella cartella del progetto**
+Apri il prompt dei comandi e spostati nella directory dove si trovano i file del tuo progetto:
+	cd percorso/del/tuo/progetto
+________________________________________
+**3. Inizializza il database (solo la prima volta)**
+Esegui lo script create_db.py per creare il file feedback.db:
+	python create_db.py
+________________________________________
+**4. Avvia il server Flask**
+Esegui lo script app.py per avviare il server locale:
+	python app.py
+Nel terminale vedrai un messaggio simile a:
+	Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+________________________________________
+**5. Apri il sito nel browser**
+Vai nel tuo browser e apri:
+	http://127.0.0.1:5000/ 
+Questo caricherà il file index.html, servito da Flask.
+________________________________________
+**Ora puoi:**
+•	 Visualizzare la homepage
+•	Cliccare su “Download PDF Gratis” per scaricare il documento
+•	Inviare un feedback tramite la modale (i dati verranno salvati in feedback.db)
+________________________________________
+**Altri percorsi utili**
+•	http://127.0.0.1:5000/ → Carica index.html: homepage con download e modulo di feedback
 
+•	http://127.0.0.1:5000/feedbacks.html → Carica feedbacks.html: elenco di tutti i feedback ricevuti
+
+•	http://127.0.0.1:5000/view_feedback.html → Carica view_feedback.html: dettaglio dei singoli feedback memorizzati
+
+Grazie.
