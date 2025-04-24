@@ -7,75 +7,59 @@ semplificando il layout. */
     box-sizing: border-box;
 }
 
-/* Qui si definisce lo stile del corpo del documento, specificando il font da utilizzare 
-(Arial o un sans-serif come fallback), impostando l'altezza della linea a 1.6 per una migliore leggibilità e 
-assegnando un colore di sfondo chiaro (#f4f4f4). */
+/* Corpo del documento */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6; /* Corretto da 1,6 a 1.6 */
+    line-height: 1.6;
     background-color: #f4f4f4;
 }
 
-/* Qui si specifica che il logo all'interno della barra di navigazione non supererà mai la larghezza
-del suo contenitore e manterrà le proporzioni corrette grazie all'impostazione "height: auto". */
 .TopNavBar .logo {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
-    margin-top: 20px; /* Aggiunto per creare distanza margine superiore al logo */
+    margin: 20px auto 0 auto; /* Margine sopra e centratura orizzontale */
+    display: block; /* Rende il logo un blocco per applicare il margin auto */
 }
 
-/* Stile per l'immagine in alto: Questo blocco centra il contenuto all'interno 
-del contenitore dell'immagine in alto. */
+/* Immagine in alto */
 .ImageTop {
     text-align: center;
 }
 
-/* Qui si imposta l'immagine all'interno del contenitore in alto per adattarsi alla larghezza del 
-contenitore senza deformazioni. */
 .ImageTop .image {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     margin-top: -80px;
 }
 
-/* Stile per il contenuto principale
-Qui si definisce lo stile del contenuto principale, limitando la sua larghezza massima a 800px, 
-centrando il contenuto con margini automatici, aggiungendo padding, uno sfondo bianco, angoli arrotondati 
-(border-radius) e un'ombra leggera per dare profondità. */
+/* Contenuto principale */
 .content {
     max-width: 800px;
     margin: 20px auto;
     padding: 30px;
-    background: white; 
+    background: white;
     border-radius: 58px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Questo blocco specifica lo stile per i titoli di primo livello all'interno del contenuto, 
-aggiungendo uno spazio inferiore di 15px e impostando il colore del testo a un grigio scuro (#333). */
 .content h1 {
     margin-bottom: 15px;
-    color: #4169E1;
+    color: #000000;
     text-align: center;
 }
 
-/* Qui si definisce lo stile dei paragrafi all'interno del contenuto principale, impostando un margine 
-inferiore di 10px e un colore del testo grigio (#555). */
 .content p {
     margin-bottom: 10px;
     color: black;
     text-align: justify;
 }
 
-/* Stile per il pulsante di download Questo blocco centra il pulsante di download e aggiunge margini verticali di 20px. */
+/* Pulsante di download */
 .download-button {
     text-align: center;
     margin: 20px 0;
 }
 
-/* Qui si definisce lo stile del pulsante di download, rendendolo un elemento a blocco in linea, 
-aggiungendo padding, un colore di sfondo blu (#007BFF), testo bianco, rimuovendo la decorazione del testo, 
-arrotondando gli angoli e aggiungendo una transizione per il cambiamento di colore di sfondo. */
 .download-button .button {
     display: inline-block;
     padding: 10px 20px;
@@ -86,89 +70,95 @@ arrotondando gli angoli e aggiungendo una transizione per il cambiamento di colo
     transition: background-color 0.3s;
 }
 
-/* Questo blocco definisce il comportamento del pulsante quando l'utente ci passa sopra il cursore, 
-cambiando il colore di sfondo a un blu più scuro (#0056b3). */
 .download-button .button:hover {
     background-color: #0056b3;
 }
 
-/* Stile per il footer Qui si definisce lo stile del footer, impostando un colore di sfondo scuro (#333), testo bianco, 
-padding di 10px sopra e sotto e centrando il testo. */
+/* Stile per il footer */
 .footer {
     background-color: #333;
     color: white;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
-}
-
-/* Questo blocco centra il contenitore del footer e limita la sua larghezza massima a 800px. */
-.footer .footer-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Qui si definisce la disposizione delle righe all'interno del footer, 
-utilizzando Flexbox per distribuire lo spazio in modo uniforme tra gli elementi e 
-allineandoli verticalmente al centro. */
-.footer .footer-row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 80px; /* Occupa tutta l'altezza della pagina */
 }
 
-/* Questo blocco rimuove il margine predefinito dal testo del footer. */
-.footer .footer-text {
-    margin: 0;
+.footer-container {
+    max-width: 1200px; /* Larghezza massima del contenitore */
+    width: 100%; /* Larghezza del contenitore al 100% */
+    padding: 0 20px;
 }
 
-/* Qui si imposta il contenitore delle icone social per utilizzare Flexbox, 
-permettendo una disposizione orizzontale delle icone. */
-.footer .social-icons-container { /* Corretto da .Social-icons-container a .social-icons-container per coerenza */
+.footer-content {
     display: flex;
+    flex-direction: column; /* Disposizione verticale degli elementi */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra orizzontalmente */
+    gap: 20px; /* Spaziatura tra gli elementi */
 }
 
-/* Questo blocco definisce lo stile dei link delle icone social, 
-impostando il colore del testo a bianco, aggiungendo margine a sinistra di 10px, 
-dimensione del font di 20px e una transizione per il cambiamento di colore. */
-.footer .social-icons a {
+.social-icons {
+    display: flex;
+    gap: 20px; /* Spaziatura tra le icone */
+    justify-content: center; /* Centra le icone orizzontalmente */
+}
+
+.social-icons a {
     color: white;
-    margin-left: 10px;
-    font-size: 20px;
+    font-size: 24px; /* Dimensione delle icone */
     transition: color 0.3s;
 }
 
-/* Qui si definisce il comportamento dei link delle icone social quando l'utente 
-ci passa sopra il cursore, cambiando il colore del testo a blu (#007BFF). */
-.footer .social-icons a:hover {
-    color: #007BFF;
+.social-icons a:hover {
+    color: #3498db; /* Colore blu al passaggio del mouse */
 }
 
-/* Media Query per dispositivi mobili 
-Questo blocco contiene una media query che applica stili specifici per dispositivi
-con una larghezza massima di 600px. Modifica la disposizione delle righe del footer in una colonna
-e centra gli elementi, aggiungendo anche un margine superiore al contenitore delle icone social. */
+.footer-links {
+    display: flex;
+    gap: 20px; /* Spaziatura tra i link */
+    justify-content: center; /* Centra i link orizzontalmente */
+}
+
+.footer-links a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #3498db; /* Colore blu al passaggio del mouse */
+}
+
+.footer-text {
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+
+/* Media Query per dispositivi mobili */
 @media (max-width: 600px) {
     .footer .footer-row {
         flex-direction: column;
         align-items: center;
     }
 
-    .footer .social-icons-container { /* Corretto da .Social-icons-container a .social-icons-container per coerenza */
+    .footer .social-icons-container {
         margin-top: 10px;
     }
 }
 
-/* Stile per il pulsante di download: Questo blocco centra il pulsante di download e aggiunge margini verticali di 20px. */
+/* Stile per il pulsante di download (seconda parte) */
 .download-button {
-    display: flex; /* Usa flexbox per allineare i pulsanti */
-    justify-content: center; /* Centra i pulsanti orizzontalmente */
-    gap: 10px; /* Spaziatura tra i pulsanti */
-    margin: 20px 0; /* Margine verticale */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
 }
 
-/* Qui si definisce lo stile del pulsante di download, rendendolo un elemento a blocco in linea, 
-aggiungendo padding, un colore di sfondo blu (#007BFF), testo bianco, rimuovendo la decorazione del testo, 
-arrotondando gli angoli e aggiungendo una transizione per il cambiamento di colore di sfondo. */
 .download-button .button {
     display: inline-block;
     padding: 10px 20px;
@@ -179,43 +169,36 @@ arrotondando gli angoli e aggiungendo una transizione per il cambiamento di colo
     transition: background-color 0.3s;
 }
 
-/* Questo blocco definisce il comportamento del pulsante quando l'utente ci passa sopra il cursore, 
-cambiando il colore di sfondo a un blu più scuro (#0056b3). */
-.button:hover .download-button  {
+.button:hover .download-button {
     background-color: #0056b3;
-}
-
-.download-button {
-    display: flex; /* Usa flexbox per allineare i pulsanti */
-    gap: 10px; /* Spaziatura tra i pulsanti */
 }
 
 /* Stile per la modale */
 .modal {
-    display: none; /* Nascondi di default */
-    position: fixed; /* Resta fisso */
-    z-index: 1; /* Sopra altri contenuti */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Larghezza intera */
-    height: 100%; /* Altezza intera */
-    overflow: auto; /* Abilita lo scorrimento se necessario */
-    background-color: rgba(0, 0, 0, 0.8); /* Sfondo nero con maggiore trasparenza */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
     background-color: #fff;
-    margin: 5% auto; /* Centrato */
+    margin: 5% auto;
     padding: 30px;
-    border-radius: 8px; /* Angoli arrotondati */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombra per effetto 3D */
-    width: 90%; /* Larghezza della modale */
-    max-width: 600px; /* Larghezza massima */
-    position: relative; /* Necessario per la posizione della chiusura */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
 }
 
 .close {
-    color: #ff0000; /* Colore rosso per il pulsante di chiusura */
+    color: #ff0000;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -223,125 +206,136 @@ cambiando il colore di sfondo a un blu più scuro (#0056b3). */
 
 .close:hover,
 .close:focus {
-    color: #d60000; /* Colore più scuro al passaggio del mouse */
+    color: #d60000;
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Stili per gli header */
 h1 {
-    color: black; /* Colore del testo del titolo */
-text-align: center;
- margin-bottom: 20px;
-}
-h2 {
-    color: #4169E1; /* Colore del testo sottotitolo */
-text-align: center;
- margin-bottom: 20px;
-}
-h3 {
-    color: black; /* Colore del testo del titolo */
-text-align: center;
- margin-bottom: 20px;
-}
-h2 + p {
+    color: black;
     text-align: center;
-    margin-bottom: 10px; /* Margine tra titolo e paragrafo */
+    margin-bottom: 20px;
 }
 
+h2 {
+    color: #4169E1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 + p {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Stile per il modulo */
 form {
     display: flex;
-    flex-direction: column; /* Layout verticale */
+    flex-direction: column;
 }
 
 label {
-    margin-top: -10px; /* Spaziatura tra etichette-SELEZIONI */
+    margin-top: -10px;
 }
 
 textarea {
-    width: 100%; /* Larghezza completa */
-    padding: 10px; /* Spaziatura interna */
-    border-radius: 4px; /* Angoli arrotondati */
-    border: 1px solid #ccc; /* Bordo grigio */
-    resize: vertical; /* Permetti solo ridimensionamento verticale */
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    resize: vertical;
 }
 
 textarea:focus {
-    border-color: #007bff; /* Colore bordo blu al focus */
-    outline: none; /* Rimuovi il contorno */
+    border-color: #007bff;
+    outline: none;
 }
 
 button {
-    background-color: #007bff; /* Colore blu dei pulsanti */
-    color: white; /* Colore del testo bianco */
-    padding: 10px 15px; /* Spaziatura interna */
-    border: none; /* Rimuovi il bordo */
-    border-radius: 5px; /* Angoli arrotondati */
-    cursor: pointer; /* Cambia il cursore */
-    margin-top: 20px; /* Spaziatura superiore */
-    transition: background-color 0.3s; /* Transizione per l'effetto hover */
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3; /* Colore blu scuro al passaggio del mouse */
+    background-color: #0056b3;
 }
 
-.download-button {
-    display: flex; /* Usa flexbox per allineare i pulsanti */
-    gap: 10px; /* Spaziatura tra i pulsanti */
-    margin: 20px 0; /* Margine superiore e inferiore */
-}
+/* Footer con larghezza piena e layout per mobile */
 .footer {
-    background-color: #2c3e50; /* Colore di sfondo del footer */
-    color: #ecf0f1; /* Colore del testo */
-    padding: 20px 0; /* Spaziatura verticale */
-    text-align: center; /* Allineamento del testo al centro */
+    width: 100vw;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px 0;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+    left: 0;
 }
 
 .footer-container {
-    max-width: 1200px; /* Larghezza massima del contenitore */
-    margin: 0 auto; /* Centra il contenitore */
-    padding: 0 20px; /* Spaziatura orizzontale */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .footer-row {
-    display: flex; /* Layout flessibile */
-    flex-direction: column; /* Disposizione verticale */
-    align-items: center; /* Allinea gli elementi al centro */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
+.footer-links,
 .social-icons {
-    margin-bottom: 15px; /* Spaziatura sotto le icone sociali */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
+.footer-links a,
 .social-icons a {
-    color: #ecf0f1; /* Colore delle icone */
-    margin: 0 10px; /* Margine orizzontale tra le icone */
-    font-size: 24px; /* Dimensione delle icone */
-    transition: color 0.3s; /* Transizione per il colore */
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
 }
 
+.footer-links a:hover,
 .social-icons a:hover {
-    color: #3498db; /* Colore delle icone al passaggio del mouse */
-}
-
-.footer-links {
-    margin-bottom: 15px; /* Spaziatura sotto i link */
-}
-
-.footer-links a {
-    color: #ecf0f1; /* Colore dei link */
-    margin: 0 15px; /* Margine orizzontale tra i link */
-    text-decoration: none; /* Rimuove la sottolineatura */
-    transition: color 0.3s; /* Transizione per il colore */
-}
-
-.footer-links a:hover {
-    color: #3498db; /* Colore dei link al passaggio del mouse */
+    color: #3498db;
 }
 
 .footer-text {
-    font-size: 14px; /* Dimensione del testo */
+    font-size: 14px;
+    margin-top: 15px;
 }
 
-.footer-text .text {
-    margin: 0; /* Rimuove il margine */
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .footer-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-links,
+    .social-icons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }

@@ -1,44 +1,163 @@
-﻿/* feedback.css */
+﻿/* Corpo della pagina */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-h1 {
+/* Contenitore del logo centrato */
+.logo-container {
     text-align: center;
-    color: #333;
-    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.logo {
+    width: 90%; /* Impostiamo la larghezza al 100% */
+    max-width: 1500px; /* Impostiamo una larghezza massima */
+    height: auto;
+}
+
+/* Header della pagina */
+.page-header {
+    text-align: center;
     margin-top: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border: 1px solid #ddd;
+.page-header h1 {
+    font-size: 2.5em;
+    color: #333;
 }
 
-th {
-    background-color: #4CAF50;
+.page-header p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* Contenitore dei feedback */
+.feedback-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Grid responsive */
+    gap: 20px;
+}
+
+/* Carta del singolo feedback */
+.feedback-card {
+    background-color: white;
+    border-radius: 10px; /* Angoli arrotondati per un look più moderno */
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra leggera per dare profondità */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione morbida */
+}
+
+/* Effetto al passaggio del mouse sulla carta */
+.feedback-card:hover {
+    transform: translateY(-5px); /* Leggera elevazione della card */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata al passaggio del mouse */
+}
+
+.feedback-card h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.feedback-card p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Aggiunta di stili per le etichette (per dare più enfasi a certe sezioni) */
+.feedback-card strong {
+    color: #007bff; /* Colore blu per le etichette */
+}
+
+/* Personalizzazione per le etichette degli argomenti */
+.feedback-card .label {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+/* Separatore visivo tra le sezioni */
+.feedback-card .separator {
+    margin: 15px 0;
+    border-top: 1px solid #f0f0f0;
+    opacity: 0.5;
+}
+
+/* Stile del pulsante di esportazione */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn {
+    background-color: #007bff;
     color: white;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s ease;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+/* Effetto hover sul pulsante */
+.btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Leggero ingrandimento del pulsante */
 }
 
-tr:hover {
-    background-color: #f1f1f1;
+/* Responsive Design per dispositivi mobili */
+@media (max-width: 768px) {
+    .logo {
+        width: 80%; /* La larghezza del logo sarà 80% per schermi di dimensioni medie */
+    }
+
+    .feedback-card {
+        padding: 15px;
+    }
+
+    .feedback-card h2 {
+        font-size: 1.6em;
+    }
+
+    .feedback-card p {
+        font-size: 1em;
+    }
 }
 
-td {
-    color: #555;
+@media (max-width: 480px) {
+    .logo {
+        width: 70%; /* La larghezza del logo sarà 70% per schermi piccoli */
+    }
+
+    .feedback-card {
+        padding: 10px;
+    }
+
+    .feedback-card h2 {
+        font-size: 1.4em;
+    }
+
+    .feedback-card p {
+        font-size: 0.9em;
+    }
 }

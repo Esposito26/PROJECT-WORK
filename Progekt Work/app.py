@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
+import csv
+from flask import Flask, render_template, request, redirect, url_for, send_file
 import sqlite3
 
 app = Flask(__name__)
@@ -27,7 +28,6 @@ def init_db():
 
 @app.route('/')
 def home():
-    # Rendi la pagina index.html (anziché feedback.html)
     return render_template('index.html')
 
 @app.route('/submit_feedback', methods=['POST'])
@@ -63,7 +63,28 @@ def view_feedback():
     cursor.execute('SELECT * FROM feedback')
     feedbacks = cursor.fetchall()
     conn.close()
-    return render_template('view_feedback.html', feedbacks=feedbacks)
+    return render_template('feedbacks.html', feedbacks=feedbacks)
+
+# Route per esportare feedback in CSV
+@app.route('/export_feedback_csv')
+def export_feedback_csv():
+    conn = sqlite3.connect('feedback.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM feedback')
+    feedbacks = cursor.fetchall()
+    conn.close()
+
+    # Creiamo il file CSV
+    with open('feedbacks.csv', 'w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        # Scriviamo la riga di intestazione
+        writer.writerow(['ID', 'PDF Utile', 'Parte preferita', 'Argomenti da approfondire', 'Errori', 'Dettagli Errori', 
+                         'Navigazione', 'Info trovate', 'Info cercate', 'Design', 'Suggerimenti'])
+        # Scriviamo i feedback
+        writer.writerows(feedbacks)
+
+    # Ritorniamo il file come allegato per il download
+    return send_file('feedbacks.csv', as_attachment=True)
 
 if __name__ == '__main__':
     init_db()  # Inizializza il database al primo avvio

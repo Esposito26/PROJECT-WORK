@@ -1,36 +1,50 @@
-﻿/* feedback.css */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-}
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Ricevuti</title>
 
-.modal-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
+    <!-- Collegamento ai file CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='feedback.css') }}">
+</head>
+<body>
 
-.close {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
+    <!-- Top Logo centrato -->
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/top logo-01.png') }}" alt="Logo Studio" class="logo">
+    </div>
 
-.close:hover, .close:focus {
-    color: black;
-    text-decoration: none;
-}
+    <!-- Titolo della pagina -->
+    <div class="page-header">
+        <h1>Feedback Ricevuti</h1>
+        
+    </div>
 
-.download-button {
-    display: flex;
-    gap: 10px;
-}
+    <!-- Pulsanti per tornare alla home e scaricare feedback -->
+    <div class="buttons-container">
+        <a href="/" class="btn">Torna alla Home</a>
+        <a href="{{ url_for('export_feedback_csv') }}" class="btn">Esporta Feedback in CSV</a>
+    </div>
+
+    <!-- Contenuto dei feedback -->
+    <div class="feedback-container">
+        {% for feedback in feedbacks %}
+            <div class="feedback-card">
+                <h2>Feedback {{ feedback[0] }}</h2>
+                <p><strong>PDF Utile:</strong> {{ feedback[1] }}</p>
+                <p><strong>Parte Preferita:</strong> {{ feedback[2] }}</p>
+                <p><strong>Argomenti da Approfondire:</strong> {{ feedback[3] }}</p>
+                <p><strong>Problemi nel PDF:</strong> {{ feedback[4] }}</p>
+                <p><strong>Dettagli dell'Errore:</strong> {{ feedback[5] }}</p>
+                <p><strong>Navigazione Sito:</strong> {{ feedback[6] }}</p>
+                <p><strong>Info Trovate:</strong> {{ feedback[7] }}</p>
+                <p><strong>Info Cercate:</strong> {{ feedback[8] }}</p>
+                <p><strong>Design del Sito:</strong> {{ feedback[9] }}</p>
+                <p><strong>Suggerimenti:</strong> {{ feedback[10] }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
